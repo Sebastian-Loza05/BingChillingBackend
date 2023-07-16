@@ -3,11 +3,6 @@ import routes from "./routes/routes";
 
 import cors from "cors";
 import morgan from "morgan";
-// import swaggerJSDoc from 'swagger-jsdoc';
-// import swaggerUI from "swagger-ui-express";
-// const options = {
-//
-// }
 
 const app = express();
 

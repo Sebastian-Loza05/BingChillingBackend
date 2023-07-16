@@ -13,12 +13,16 @@ export const Login = async (req, res) =>{
   const db = await connect();
   const key = "diana";
   const pass_encry = encryptString(req.body.password, key);
+  const [prueba] =  await db.query("SELECT * FROM users WHERE usuario = ?", [
+    req.body.user
+  ]);
   const [rows] =  await db.query("SELECT * FROM users WHERE usuario = ? and password = ?", [
     req.body.user,
     pass_encry,
   ]);
+  console.log(prueba);
   console.log(pass_encry);
-  console.log(rows);
+  // console.log(rows);
   if(rows.length == 0){
     res.json({
       "success":false,
